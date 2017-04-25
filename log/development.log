@@ -307,3 +307,352 @@ Migrating to CreateProjects (20170425145933)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170425145933"]]
   [1m[35m (0.8ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-04-25 12:00:49 -0300
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 96ms (Views: 92.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+
+
+Started GET "/assets/projects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-04-25 12:00:49 -0300
+Started GET "/assets/projects.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-04-25 12:00:49 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started POST "/users" for 127.0.0.1 at 2017-04-25 12:00:56 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xpMlpqDrB+eIlSsvBv8xMQEnguesgyyVosdxCE/JEguGrPC5sHayGkbP5oEKFPH+cp7IfqRLPpI9aXUl9IPBdg==", "user"=>{"email"=>"jonas@matilhaestud.io", "subdomain"=>"teste"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "subdomain", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "jonas@matilhaestud.io"], ["subdomain", "teste"], ["created_at", "2017-04-25 15:00:56.132395"], ["updated_at", "2017-04-25 15:00:56.132395"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "subdomain" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170425145933')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170425145104')[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://jonas.multitenancy.dev/users/2
+Completed 302 Found in 15ms (ActiveRecord: 7.0ms)
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-04-25 12:00:56 -0300
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/users" for 127.0.0.1 at 2017-04-25 12:00:58 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 12:01:01 -0300
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2017-04-25 12:01:03 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form.html.erb (2.7ms)
+  Rendered projects/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 38ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started POST "/projects" for 127.0.0.1 at 2017-04-25 12:01:10 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5wDxWeLxW83ZrV6pF6kH5N4QLte0lH/vDLjHf5yEMFmnPyRG8mzuMBf3kwcbQscrralkTrxcbeiTFsNSJ87jJA==", "project"=>{"title"=>"jonasproject"}, "commit"=>"Create Project"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "projects" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "jonasproject"], ["created_at", "2017-04-25 15:01:10.915000"], ["updated_at", "2017-04-25 15:01:10.915000"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://jonas.multitenancy.dev/projects/1
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2017-04-25 12:01:10 -0300
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (0.3ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 12:01:12 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 28ms (Views: 27.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 12:01:16 -0300
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+
+
+Started GET "/assets/projects.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+Started GET "/assets/scaffolds.self-cbe62ff75bab2647bd2ef261d51049746540265543bc102b8d277c94da6291fe.css?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/assets/projects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-04-25 12:01:17 -0300
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2017-04-25 12:01:19 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.4ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form.html.erb (1.6ms)
+  Rendered projects/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 25ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started POST "/projects" for 127.0.0.1 at 2017-04-25 12:01:23 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Szz+fnMftg41OFD6lcnHVbXwiImsKbA7lIb294DElCHq1g6uwi9/Qt9alQObpSVJeEp4nwCKnWDv27ef1/VnLg==", "project"=>{"title"=>"testeproject"}, "commit"=>"Create Project"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "testeproject"], ["created_at", "2017-04-25 15:01:23.733851"], ["updated_at", "2017-04-25 15:01:23.733851"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://teste.multitenancy.dev/projects/1
+Completed 302 Found in 3ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2017-04-25 12:01:23 -0300
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (0.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2017-04-25 12:01:25 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT "users"."subdomain" FROM "users"
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 12:01:27 -0300
+  [1m[35m (0.2ms)[0m  SELECT "users"."subdomain" FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+  [1m[35m (0.1ms)[0m  SELECT "users"."subdomain" FROM "users"
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-04-25 12:06:57 -0300
+  [1m[36m (0.2ms)[0m  [1mSELECT "users"."subdomain" FROM "users"[0m
+
+Apartment::TenantNotFound (The tenant www cannot be found.):
+  apartment (1.2.0) lib/apartment/adapters/sqlite3_adapter.rb:32:in `connect_to_new'
+  apartment (1.2.0) lib/apartment/adapters/abstract_adapter.rb:91:in `block in switch!'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_switch_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  apartment (1.2.0) lib/apartment/adapters/abstract_adapter.rb:88:in `switch!'
+  apartment (1.2.0) lib/apartment/adapters/abstract_adapter.rb:105:in `switch'
+  apartment (1.2.0) lib/apartment/elevators/generic.rb:22:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:155:in `handle'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:109:in `rescue in block (2 levels) in start'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:106:in `block (2 levels) in start'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:96:in `each'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:96:in `block in start'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:76:in `loop'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:76:in `start'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/lib/nack/server.rb:12:in `run'
+  /Users/jonasscherer/Library/Application Support/Pow/Versions/0.5.0/node_modules/nack/bin/nack_worker:4:in `<main>'
+
+
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (88.1ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (82.6ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jonasscherer/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (174.3ms)
